@@ -42,7 +42,7 @@ const App = () => {
         setNumber(1)
         setMessage(`Information from ${blog.name} was already deleted from server`)
         setTimeout(() => {
-          setMessage(0)
+          setNumber(0)
         }, 5000)
         setBlogs(blogs.filter(x => x.id !== blog.id))
       })
@@ -81,14 +81,14 @@ const App = () => {
             setNumber(2)
             setMessage(`Blog ${blog.title} by ${blog.author} has been deleted`)
             setTimeout(() => {
-            setMessage(0)
+            setNumber(0)
           }, 5000)
           })
           .catch(error => {
             setNumber(1)
             setMessage(error.response.data.error)
             setTimeout(() => {
-              setMessage(0)
+              setNumber(0)
             }, 5000)
             if(error.response.status !== 401){
               setBlogs(blogs.filter(x => x.id !== blog.id))
@@ -118,7 +118,7 @@ const App = () => {
 
     blogService.setToken(user.token)
     setUser(user)
-    console.log(JSON.stringify(user))
+    //console.log(JSON.stringify(user))
     setUsername('')
     setPassword('')
   } catch (exception) {
